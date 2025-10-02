@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-4" style="max-width: 720px;">
+  <h2 class="mb-3">New Petition</h2>
+  <form method="post" class="card card-body">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Movie title</label>
+      {{ form.movie_title }}
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Why should we include this movie? (optional)</label>
+      {{ form.description }}
+    </div>
+    <div class="d-flex gap-2">
+      <a href="{% url 'petitions:list' %}" class="btn btn-outline-secondary">Cancel</a>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
